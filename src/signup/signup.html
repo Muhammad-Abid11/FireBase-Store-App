@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+
+    <h2>Signup Form</h2>
+    <div class="form">
+        <div class="imgcontainer">
+            <img src="../../assests/avatar.png" alt="Avatar" class="avatar">
+        </div>
+
+        <div class="container">
+            <label for="fullname"><b>Full Name</b></label>
+            <input type="text" placeholder="Enter Username" id="fullname" name="uname" required>
+            <label for="uemail"><b>Email</b></label>
+            <input type="email" placeholder="Enter Email" id="uemail" name="uemail" required>
+            <label for="psw"><b>Password</b></label>
+            <input type="password" placeholder="Enter Password" id="psw" name="psw" required>
+            <label for="confirmPsw"><b>Confirm Password</b></label>
+            <input type="password" placeholder="Enter Password" id="confirmPsw" name="confirmPsw" required>
+
+            <button type="submit" onClick="onSignup()">SignUp</button>
+            <label>
+                <input type="checkbox" checked="checked" name="remember"> Remember me
+            </label>
+        </div>
+
+        <div class="container" style="background-color:#f1f1f1">
+            <span class="psw"><a href="../login/login.html">Already have an account?</a></span><br>
+            <span class="psw">Forgot <a href="#">password?</a></span>
+        </div>
+    </div>
+    <script type="module" src="signup.js"></script>
+</body>
+
+</html>

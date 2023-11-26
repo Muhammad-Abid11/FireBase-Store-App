@@ -4,11 +4,61 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Store ABC</title>
+    <link rel="shortcut icon" href="assests/storess.png" type="image/x-icon">
+    <link rel="stylesheet" href="style.css">
 </head>
 
-<body>
-    <h1>Hello World</h1>
+<body loading="lazy">
+
+    <div id="loader">
+        <img src="../../assests/04Gzjgh9Y7Gu8KEtZ.gif" alt="loader" style=" width: 50%;margin: auto;display: flex;">
+    </div>
+    <div id="content" class="hide">
+        <nav class="navbar">
+            <ul class="logo-title">
+                <li><a class="active" href="./index.html"><img src="../../assests/storess.png" width="30"></a></li>
+                <li><a href="./index.html" id="userName">Store ABC</a></li>
+                <li><a onClick="location.href = './src/adPost/adPost.html'">Post Your Ads</a></li>
+            </ul>
+            <a onClick="Login()" id="loginBtns" class="login-button">Login</a>
+        </nav>
+
+        <main id="main">
+
+        </main>
+
+
+        <div class="footer">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h2>Contact Us</h2>
+                    <p>Email: abidkhan11845@gmail.com</p>
+                    <p>Phone: 0308-2434421</p>
+                </div>
+                <div class="footer-section">
+                    <h2>Quick Links</h2>
+                    <ul>
+                        <li><a href="#">Home</a></li>
+                        <li><a href="#">About Us</a></li>
+                        <li><a href="#">Services</a></li>
+                        <li><a href="#">Blog</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h2>Follow Us</h2>
+                    <ul class="social-links">
+                        <li><a href="#"><i class="fab fa-facebook"></i> Facebook</a></li>
+                        <li><a href="#"><i class="fab fa-twitter"></i> Twitter</a></li>
+                        <li><a href="#"><i class="fab fa-linkedin"></i> LinkedIn</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+    </div>
+    <script type="module" src="index.js"></script>
+
 </body>
 
 </html>
