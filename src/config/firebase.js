@@ -1,22 +1,21 @@
 import { initializeApp } from
     "https://www.gstatic.com/firebasejs/10.6.0/firebase-app.js";
-import { getStorage, ref, uploadBytesResumable, uploadBytes, getDownloadURL }
+import { getStorage, ref, uploadBytes, getDownloadURL }
     from "https://www.gstatic.com/firebasejs/10.6.0/firebase-storage.js";
 import { getAuth, signOut, createUserWithEmailAndPassword, onAuthStateChanged, signInWithEmailAndPassword } from
     "https://www.gstatic.com/firebasejs/10.6.0/firebase-auth.js";
 
-import { collection, addDoc, getDoc, getFirestore, doc, setDoc } from
+import { getDocs, collection, addDoc, getDoc, getFirestore, doc, setDoc } from
     "https://www.gstatic.com/firebasejs/10.6.0/firebase-firestore.js";
 
 const firebaseConfig = {
-    apiKey: "AIzaSyCgjnXV8W571cXPC3OuAiK_BBX0o2nvYlI",
-    authDomain: "fir-store-b10.firebaseapp.com",
-    projectId: "fir-store-b10",
-    storageBucket: "fir-store-b10.appspot.com",
-    messagingSenderId: "252132914537",
-    appId: "1:252132914537:web:2d3cad2c487da67c5eb9f8",
-    storageBucket: ''
-
+    apiKey: "AIzaSyD9ObDXV4gHIfK6EH1V2rfPIZK2pMfh1sE",
+    authDomain: "fir-store-b10-257cb.firebaseapp.com",
+    projectId: "fir-store-b10-257cb",
+    storageBucket: "fir-store-b10-257cb.appspot.com",
+    messagingSenderId: "57831018633",
+    appId: "1:57831018633:web:7ce8d1288647e9e6d63658",
+    measurementId: "G-9LSGK8NEDZ"
 };
 
 
@@ -98,9 +97,20 @@ async function getUser(userId) {
 
 // getUser end-----------------------------
 
+async function renderAds() {
+    const querySnapshot = await getDocs(collection(db, "ads"));
+    const ads = []
+    querySnapshot.forEach((doc) => {
+        // console.log(doc.id, " => ", doc.data());
+        const ad = { id: doc.id, ...doc.data() } //new object with "id" and other "data" 
+        ads.push(ad)
+    });
+    return ads
 
+}
 
 export {
+    renderAds,
     signUp,
     login,
     onAuthStateChanged,

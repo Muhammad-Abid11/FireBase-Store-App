@@ -1,4 +1,4 @@
-import { auth, onAuthStateChanged, Signout, getUser } from "./src/config/firebase.js";
+import { auth, onAuthStateChanged, Signout, getUser, renderAds } from "./src/config/firebase.js";
 
 let logged_In;
 onAuthStateChanged(auth, async (user) => {
@@ -42,8 +42,9 @@ window.Logout = function () {
 
 // var count = 0
 async function getData() {
-    var data = []
-    var products = []
+
+    const products = await renderAds()
+    console.log("data-->", products);
     // console.log(products[count])
     // down render products
     // ------hide loader and display content
@@ -82,17 +83,17 @@ async function getData() {
         divContainer.className = "container"
         var h4 = document.createElement("h4");
         h4.setAttribute("id", "title");
-        h4.innerHTML = products[i].title.slice(0, 10)
+        h4.innerHTML = products[i].title
         // console.log(h4)
 
         var descriptionElement = document.createElement("p");
         descriptionElement.setAttribute("id", "description");
-        descriptionElement.innerHTML = products[i].description.slice(0, 20);
+        descriptionElement.innerHTML = products[i].description
         // console.log(descriptionElement)
 
         var priceElement = document.createElement("p");
         priceElement.setAttribute("id", "price");
-        priceElement.innerHTML = products[i].price + "$";
+        priceElement.innerHTML = products[i].amount + "$";
         // console.log(priceElement)
 
         // create addCartBtn

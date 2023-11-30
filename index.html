@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Store ABC</title>
-    <link rel="shortcut icon" href="assests/storess.png" type="image/x-icon">
+    <link rel="shortcut icon" href="./assests/storess.png" type="image/x-icon">
     <link rel="stylesheet" href="style.css">
 </head>
 
@@ -19,7 +19,34 @@
             <ul class="logo-title">
                 <li><a class="active" href="./index.html"><img src="../../assests/storess.png" width="30"></a></li>
                 <li><a href="./index.html" id="userName">Store ABC</a></li>
-                <li><a onClick="location.href = './src/adPost/adPost.html'">Post Your Ads</a></li>
+                <!-- <li><a onClick="location.href = './src/adPost/adPost.html'">Post Your Ads</a></li> -->
+
+                <!-- The modal start-->
+                <button id="openModal">Post Your Ads</button>
+                <div id="myModal" class="modal">
+                    <div class="modal-content">
+                        <span class="close" id="closeModal">&times;</span>
+                        <div class="input-container">
+                            <h2>Enter Details</h2>
+                            <form id="form">
+                                <label for="title">Title:</label><br>
+                                <input type="text" id="title" name="title"><br>
+
+                                <label for="description">Description:</label><br>
+                                <input type="text" id="description" name="description"><br>
+
+                                <label for="amount">Amount:</label><br>
+                                <input type="text" id="amount" name="amount"><br>
+
+                                <label for="file">File:</label><br>
+                                <input type="file" id="file" name="file"><br><br>
+
+                                <input type="submit" class="login-button" value="Submit">
+                            </form>
+                        </div>
+                    </div>
+                </div>
+                <!-- The modal end-->
             </ul>
             <a onClick="Login()" id="loginBtns" class="login-button">Login</a>
         </nav>
@@ -58,6 +85,7 @@
 
     </div>
     <script type="module" src="index.js"></script>
+    <script type="module" src="adPost.js"></script>
 
 </body>
 
