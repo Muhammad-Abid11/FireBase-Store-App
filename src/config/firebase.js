@@ -5,7 +5,7 @@ import { getStorage, ref, uploadBytes, getDownloadURL }
 import { getAuth, signOut, createUserWithEmailAndPassword, onAuthStateChanged, signInWithEmailAndPassword } from
     "https://www.gstatic.com/firebasejs/10.6.0/firebase-auth.js";
 
-import { getDocs, collection, addDoc, getDoc, getFirestore, doc, setDoc } from
+import { getDocs, collection, addDoc, getDoc, getFirestore, doc, setDoc, query, where } from
     "https://www.gstatic.com/firebasejs/10.6.0/firebase-firestore.js";
 
 const firebaseConfig = {
@@ -96,6 +96,7 @@ async function getUser(userId) {
 }
 
 // getUser end-----------------------------
+// render allAds Start-----------------------------
 
 async function renderAds() {
     const querySnapshot = await getDocs(collection(db, "ads"));
@@ -108,8 +109,59 @@ async function renderAds() {
     return ads
 
 }
+// render allAds end-----------------------------
+// render singleAds start-----------------------------
+
+async function renderSingleAd(adId) {
+
+    const docRef = doc(db, "ads", adId);
+    const docSnap = await getDoc(docRef);
+
+    if (docSnap.exists()) {
+        const ads = docSnap.data()
+        return ads
+    } else {
+        // docSnap.data() will be undefined in this case
+        console.log("No such document!");
+    }
+}
+// render singleAds end-----------------------------
+// render PostADs start-----------------------------
+async function postAdToDb(ad) {
+    try {
+        const storageRef = ref(storage, `ads/${ad.image.name}`);
+        await uploadBytes(storageRef, ad.image)
+        const url = await getDownloadURL(storageRef)
+        ad.image = url
+
+        const res = await addDoc(collection(db, "ads"), ad)
+        alert('Data added successfully!')
+    } catch (e) {
+        alert(e.message)
+    }
+
+}
+// render PostADs end-----------------------------
+// render MyAds Start-----------------------------
+async function getMyAdsFromDb(uid) {
+    const adsRef = collection(db, "ads")
+    const querySnapshot = await getDocs(query(adsRef, where("uid", "==", uid)))
+    const ads = []
+    querySnapshot.forEach((doc) => {
+        const ad = { id: doc.id, ...doc.data() }
+
+        ads.push(ad)
+    });
+
+    return ads
+}
+
+// render MyAds end-----------------------------
 
 export {
+    getMyAdsFromDb,
+    postAdToDb,
+    renderSingleAd,
     renderAds,
     signUp,
     login,

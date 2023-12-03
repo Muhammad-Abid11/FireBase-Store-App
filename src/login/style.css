@@ -62,3 +62,23 @@
                 float: none;
             }
         }
+
+
+        /* Existing CSS code */
+
+/* Added media query for responsiveness */
+@media screen and (max-width: 600px) {
+    .form {
+        width: 80%; /* Adjusted width for smaller screens */
+    }
+
+    img.avatar {
+        width: 60%; /* Adjusted avatar size for smaller screens */
+    }
+}
+
+@media screen and (max-width: 320px) {
+    .form {
+        width: 320px; /* Stop shrinking below 320px */
+    }
+}

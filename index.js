@@ -5,9 +5,10 @@ onAuthStateChanged(auth, async (user) => {
     if (!user) {
         console.log(user);
         console.log("login kr pehly index");
+        const myAds = document.getElementById("myAds")
+        myAds.className = "hide"
     } else {
         console.log("user in dashboard", user.email)
-        // window.location = '../../index.html'
 
         const userNames = await getUser(user.uid)
         // console.log("name ajao bhai-->", userNames, user.uid)
@@ -17,6 +18,8 @@ onAuthStateChanged(auth, async (user) => {
             logged_In = true
             var userName = document.getElementById("userName"); //user k name 
             userName.innerHTML = userNames.name
+            const myAds = document.getElementById("myAds")
+            myAds.className = " "
         }
     }
 });
@@ -40,13 +43,10 @@ window.Logout = function () {
 }
 
 
-// var count = 0
 async function getData() {
 
     const products = await renderAds()
     console.log("data-->", products);
-    // console.log(products[count])
-    // down render products
     // ------hide loader and display content
     setTimeout(() => {
         var loader = document.getElementById("loader");
@@ -57,14 +57,11 @@ async function getData() {
     for (let i = 0; i < products.length; i++) {
 
         var main = document.getElementById("main")
-        //upper main ko target krliya
         var divCard = document.createElement("div")
         divCard.className = "card"
 
         divCard.onclick = function () {
-            // yhn humne query param"?""  use kiya hai 
-            //? k bad "productid" ye 1 variable hai jis me  
-            window.location.href = "./src/product_details/details.html?productid=" + products[i].id
+            window.location.href = "./src/adDetails/details.html?productid=" + products[i].id
         }
         //upper ab card k liye div bana hai or ishi me sb ab hongy
 
@@ -72,7 +69,8 @@ async function getData() {
         // ---------------down image
         var imgElement = document.createElement("img")
         imgElement.setAttribute("id", "cardImage")
-        imgElement.style = "width:100%"
+        // imgElement.style = "width:100%"
+        // imgElement.style = "height:100px"
         imgElement.src = products[i].image
         // console.log(imgElement)
         divCard.append(imgElement)
@@ -101,18 +99,13 @@ async function getData() {
         addCartBtn.innerHTML = "Add to Cart"
         addCartBtn.className = "addBtn"
 
-        // divContainer me heading price or description add kro
         divContainer.append(h4)
-        // divContainer.append(descriptionElement)
         divContainer.append(priceElement)
-        // console.log(divContainer)
 
-        // ab image(upper connect hai)/description bana kr k divCard k sath connect krna hai
         divContainer.append(addCartBtn)
         divCard.append(divContainer);
-        // console.log(divCard)
 
-        main.append(divCard) //now connect with main div
+        main.append(divCard)
     }
 
 }

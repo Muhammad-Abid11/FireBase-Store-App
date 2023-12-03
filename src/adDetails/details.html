@@ -4,25 +4,23 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Store ABC</title>
-    <link rel="shortcut icon" href="./assests/storess.png" type="image/x-icon">
+    <title>Product Details</title>
+    <link rel="shortcut icon" href="../../assests/storess.png" type="image/x-icon">
     <link rel="stylesheet" href="style.css">
 </head>
 
-<body loading="lazy">
-
+<body>
     <div id="loader">
         <img src="../../assests/04Gzjgh9Y7Gu8KEtZ.gif" alt="loader" style=" width: 50%;margin: auto;display: flex;">
     </div>
     <div id="content" class="hide">
         <nav class="navbar">
             <ul class="logo-title">
-                <li><a class="active" href="./index.html"><img src="../../assests/storess.png" width="30"></a></li>
-                <li><a href="./index.html" id="userName">Store ABC</a></li>
-
+                <li><a class="active" href="../../index.html"><img src="../../assests/storess.png" width="30"></a></li>
+                <li><a href="../../index.html" id="userName">Store ABC</a></li>
                 <!-- The modal start-->
                 <button id="openModal">Post Your Ads</button>
-                <a href="./src/myAds/myAds.html"><button id="myAds">My Ads</button></a>
+                <a href="../myAds/myAds.html"><button id="myAds">My Ads</button></a>
                 <div id="myModal" class="modal">
                     <div class="modal-content">
                         <span class="close" id="closeModal">&times;</span>
@@ -51,10 +49,13 @@
             <a onClick="Login()" id="loginBtns" class="login-button">Login</a>
         </nav>
 
+        <h1 style="margin-left: 20px;">
+            Product Details
+        </h1>
+
         <main id="main">
 
         </main>
-
 
         <div class="footer">
             <div class="footer-content">
@@ -83,10 +84,9 @@
             </div>
         </div>
 
-    </div>
-    <script type="module" src="index.js"></script>
-    <script type="module" src="adPost.js"></script>
 
+
+        <script type="module" src="./details.js"></script>
 </body>
 
 </html>

@@ -1,6 +1,6 @@
 import {
     storage, auth, db, collection, addDoc, ref, uploadBytes,
-    getDownloadURL
+    getDownloadURL, postAdToDb
 } from "./src/config/firebase.js"
 
 
@@ -54,17 +54,3 @@ form.addEventListener('submit', (event) => {
 
 })
 
-async function postAdToDb(ad) {
-    try {
-        const storageRef = ref(storage, `ads/${ad.image.name}`);
-        await uploadBytes(storageRef, ad.image)
-        const url = await getDownloadURL(storageRef)
-        ad.image = url
-
-        await addDoc(collection(db, "ads"), ad)
-        alert('Data added successfully!')
-    } catch (e) {
-        alert(e.message)
-    }
-
-}

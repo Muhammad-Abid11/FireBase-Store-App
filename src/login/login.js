@@ -2,7 +2,8 @@ import { login, onAuthStateChanged, auth } from "../config/firebase.js";
 onAuthStateChanged(auth, (user) => {
     if (user) {
         console.log(user);
-        window.location = '../../index.html'
+        // window.location = '../../index.html'
+        window.history.back()
     } else {
         console.log("login kr pehly ");
     }
