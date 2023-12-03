@@ -43,7 +43,9 @@ async function signUp(data) {
             email
         });
 
-        alert("User Registered Successfully")
+        // alert("User Registered Successfully")
+        Swal.fire("User Registered Successfully!");
+
     } catch (error) {
 
         const errorCode = error.code;
@@ -61,7 +63,8 @@ async function login(data) {
         .then((userCredential) => {
             // Signed in 
             const user = userCredential.user;
-            alert("User Login SuccessFully")
+            // alert("User Login SuccessFully")
+            Swal.fire("User Login SuccessFully!");
         })
         .catch((error) => {
             const errorCode = error.code;
@@ -135,9 +138,12 @@ async function postAdToDb(ad) {
         ad.image = url
 
         const res = await addDoc(collection(db, "ads"), ad)
-        alert('Data added successfully!')
+        // alert('Data added successfully!')
+        Swal.fire('Data added successfully!');
     } catch (e) {
-        alert(e.message)
+        Swal.fire(e.message);
+
+        // alert(e.message)
     }
 
 }

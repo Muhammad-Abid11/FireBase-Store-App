@@ -8,6 +8,7 @@ onAuthStateChanged(auth, async (user) => {
         // console.log("login kr pehly index");
         const myAds = document.getElementById("myAds")
         myAds.className = "hide"
+        window.location = '../../index.html'
 
     } else {
         // console.log("user in dashboard", user.email)
@@ -35,7 +36,9 @@ const closeBtn = document.getElementById('closeModal');
 
 openBtn.addEventListener('click', () => {
     if (auth.currentUser == null) {
-        alert("Please Login ")
+        // alert("Please Login ")
+        Swal.fire('Please Login!');
+
     } else {
         modal.style.display = 'block';
     }
