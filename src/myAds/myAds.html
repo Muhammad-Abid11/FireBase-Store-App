@@ -1,16 +1,91 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
     <title>My Ads</title>
 </head>
-<body>
-    <h3>My Ads</h3>
-    <div id="container">
 
+<body>
+    <div id="loader">
+        <img src="../../assests/04Gzjgh9Y7Gu8KEtZ.gif" alt="loader" style=" width: 50%;margin: auto;display: flex;">
+    </div>
+    <div id="content" class="hide">
+        <nav class="navbar">
+            <ul class="logo-title">
+                <li><a class="active" href="../../index.html"><img src="../../assests/storess.png" width="30"></a></li>
+                <li><a href="../../index.html" id="userName">Store ABC</a></li>
+                <!-- The modal start-->
+                <button id="openModal">Post Your Ads</button>
+                <a href="../myAds/myAds.html"><button id="myAds">My Ads</button></a>
+                <div id="myModal" class="modal">
+                    <div class="modal-content">
+                        <span class="close" id="closeModal">&times;</span>
+                        <div class="input-container">
+                            <h2>Enter Details</h2>
+                            <form id="form">
+                                <label for="title">Title:</label><br>
+                                <input type="text" id="title" name="title"><br>
+
+                                <label for="description">Description:</label><br>
+                                <input type="text" id="description" name="description"><br>
+
+                                <label for="amount">Amount:</label><br>
+                                <input type="text" id="amount" name="amount"><br>
+
+                                <label for="file">File:</label><br>
+                                <input type="file" id="file" name="file"><br><br>
+
+                                <input type="submit" class="login-button" value="Submit">
+                            </form>
+                        </div>
+                    </div>
+                </div>
+                <!-- The modal end-->
+            </ul>
+            <a onClick="Login()" id="loginBtns" class="login-button">Login</a>
+        </nav>
+        <h1 style="text-align: center;">My Ads</h1>
+        <!-- <div id="container"> -->
+
+        <!-- </div> -->
+
+        <main id="main">
+
+        </main>
+
+
+        <div class="footer">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h2>Contact Us</h2>
+                    <p>Email: abidkhan11845@gmail.com</p>
+                    <p>Phone: 0308-2434421</p>
+                </div>
+                <div class="footer-section">
+                    <h2>Quick Links</h2>
+                    <ul>
+                        <li><a href="#">Home</a></li>
+                        <li><a href="#">About Us</a></li>
+                        <li><a href="#">Services</a></li>
+                        <li><a href="#">Blog</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h2>Follow Us</h2>
+                    <ul class="social-links">
+                        <li><a href="#"><i class="fab fa-facebook"></i> Facebook</a></li>
+                        <li><a href="#"><i class="fab fa-twitter"></i> Twitter</a></li>
+                        <li><a href="#"><i class="fab fa-linkedin"></i> LinkedIn</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
     </div>
 
     <script type="module" src="./myAds.js"></script>
 </body>
+
 </html>

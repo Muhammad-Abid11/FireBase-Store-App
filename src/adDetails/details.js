@@ -3,8 +3,8 @@ import { onAuthStateChanged, auth, db, renderSingleAd, getUser, Signout, postAdT
 let logged_In;
 onAuthStateChanged(auth, async (user) => {
     if (!user) {
-        console.log(user);
-        console.log("login kr pehly index");
+        // console.log(user);
+        // console.log("login kr pehly index");
         const myAds = document.getElementById("myAds")
         myAds.className = "hide"
 
@@ -103,8 +103,8 @@ async function getAdDetail() {
     // console.log("addID-->", adId)
     const ad = await renderSingleAd(adId)
     const user = await getUser(ad.uid)
-    console.log('ad posted user-->', user)
-    console.log('ad details-->', ad)
+    // console.log('ad posted user-->', user)
+    // console.log('ad details-->', ad)
 
     setTimeout(() => {
         var loader = document.getElementById("loader");

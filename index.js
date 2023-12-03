@@ -3,12 +3,12 @@ import { auth, onAuthStateChanged, Signout, getUser, renderAds } from "./src/con
 let logged_In;
 onAuthStateChanged(auth, async (user) => {
     if (!user) {
-        console.log(user);
-        console.log("login kr pehly index");
+        // console.log(user);
+        // console.log("login kr pehly index");
         const myAds = document.getElementById("myAds")
         myAds.className = "hide"
     } else {
-        console.log("user in dashboard", user.email)
+        // console.log("user in dashboard", user.email)
 
         const userNames = await getUser(user.uid)
         // console.log("name ajao bhai-->", userNames, user.uid)
@@ -46,7 +46,7 @@ window.Logout = function () {
 async function getData() {
 
     const products = await renderAds()
-    console.log("data-->", products);
+    // console.log("data-->", products);
     // ------hide loader and display content
     setTimeout(() => {
         var loader = document.getElementById("loader");
