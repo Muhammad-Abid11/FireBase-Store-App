@@ -111,7 +111,7 @@ async function getAdDetail() {
         loader.className = "hide"
         var content = document.getElementById("content");
         content.className = " "
-    }, 2000)
+    }, 1000)
 
     const main = document.getElementById('main')
 

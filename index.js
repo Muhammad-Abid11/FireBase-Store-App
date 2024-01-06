@@ -53,7 +53,7 @@ async function getData() {
         loader.className = "hide"
         var content = document.getElementById("content");
         content.className = " "
-    }, 2000)
+    }, 1000)
     for (let i = 0; i < products.length; i++) {
 
         var main = document.getElementById("main")

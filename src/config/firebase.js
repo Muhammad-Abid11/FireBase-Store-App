@@ -45,12 +45,15 @@ async function signUp(data) {
 
         // alert("User Registered Successfully")
         Swal.fire("User Registered Successfully!");
+        window.location = '../../index.html'
 
     } catch (error) {
 
         const errorCode = error.code;
         const errorMessage = error.message;
-        console.log("Error dekh bhai -->", errorMessage)
+        // console.log("Error dekh bhai -->", errorMessage)
+        Swal.fire("User Registered Failed!");
+
     }
 }
 // signup end-----------------------------
@@ -69,7 +72,8 @@ async function login(data) {
         .catch((error) => {
             const errorCode = error.code;
             const errorMessage = error.message;
-            console.log("error dekho-->", errorMessage)
+            // console.log("error dekho-->", errorMessage)
+            Swal.fire("Username/Password not found")
         });
 }
 
@@ -94,7 +98,9 @@ async function getUser(userId) {
         return docSnap.data()
     } else {
         // docSnap.data() will be undefined in this case
-        console.log("No such document!");
+        // console.log("No such document!");
+        Swal.fire("No such document!");
+
     }
 }
 
@@ -125,7 +131,9 @@ async function renderSingleAd(adId) {
         return ads
     } else {
         // docSnap.data() will be undefined in this case
-        console.log("No such document!");
+        // console.log("No such document!");
+        Swal.fire('No such document!');
+
     }
 }
 // render singleAds end-----------------------------

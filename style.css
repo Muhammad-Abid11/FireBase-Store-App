@@ -53,7 +53,7 @@ li a:hover {
 
 /* cards css */
 main{
-    margin: 20px;
+    margin: 10px;
     display: flex;
     flex-wrap: wrap;
     justify-content: space-evenly;
@@ -67,6 +67,7 @@ main{
   /* flex: 12; */
   margin-bottom: 25px;
   margin: 30px;
+  padding: 10px;
 }
 #cardImage{
   width: 100%;
@@ -231,7 +232,7 @@ main{
 /* Added media queries for responsiveness */
 @media screen and (max-width: 1200px) {
     .card {
-        width: 30%; /* Adjust card width for medium-sized screens */
+        max-width: 30%; /* Adjust card width for medium-sized screens */
     }
 }
 
