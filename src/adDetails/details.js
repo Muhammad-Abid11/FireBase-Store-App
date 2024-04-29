@@ -33,7 +33,9 @@ const closeBtn = document.getElementById('closeModal');
 
 openBtn.addEventListener('click', () => {
     if (auth.currentUser == null) {
-        alert("Please Login ")
+        // alert("Please Login ")
+        Swal.fire("Please Login!")
+        return
     } else {
         modal.style.display = 'block';
     }
